@@ -1,7 +1,7 @@
 <script>
 export default {
   name: "TabsGroup",
-  props: ["tabs"],
+  props: ["tabs", "tabLeft"],
   data() {
     return {
       tabValue: 1,
@@ -11,7 +11,7 @@ export default {
 </script>
 <template>
   <div>
-    <div class="tabs">
+    <div class="tabs" :style="`margin-left: ${tabLeft}rem`">
       <div
         v-for="(t, i) in tabs"
         :key="i"
@@ -27,11 +27,12 @@ export default {
 </template>
 <style lang="scss" scoped>
 .tabs {
+  background: white;
   display: flex;
   cursor: pointer;
   gap: 1rem;
   border-bottom: 1px solid lightgray;
-  margin-left: 2rem;
+  // margin-left: 3rem;
   .tab {
     padding: 0.5rem;
   }

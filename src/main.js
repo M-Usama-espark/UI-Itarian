@@ -7,17 +7,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
+import "@fortawesome/fontawesome-free/css/all.css";
+import "@fortawesome/fontawesome-free/js/all.js";
+
 Vue.config.productionTip = false;
-// const router = createRouter({ ... })
-
-router.afterEach((to) => {
-  if (to.name == "home") {
-    store.dispatch("set_searchBar", true);
-  } else {
-    store.dispatch("set_searchBar", false);
-  }
-});
-
 new Vue({
   router,
   store,

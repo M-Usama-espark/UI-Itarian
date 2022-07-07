@@ -31,7 +31,7 @@ export default {
   height: 100vh;
   background: #d8e1e8;
   color: #2c3e50;
-  font-size: 14px;
+  font-size: 13px;
   .main {
     width: 100%;
     height: 100vh;

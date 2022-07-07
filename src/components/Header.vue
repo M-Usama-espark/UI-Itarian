@@ -31,7 +31,7 @@ export default {
   align-items: center !important;
   align-items: baseline;
   justify-content: space-between;
-  height: 4rem;
+  height: 3.3rem;
   top: 0;
   left: 0;
   z-index: 999;

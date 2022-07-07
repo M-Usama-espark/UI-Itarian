@@ -9,8 +9,8 @@
   </div>
 </template>
 <script>
-import SideSearch from "../components/SubComponents/SideSearch.vue";
-import DeviceGroup from "../views/SubScreen/DeviceGroup.vue";
+import SideSearch from "../../components/SubComponents/SideSearch.vue";
+import DeviceGroup from "../SubScreen/DeviceGroup.vue";
 export default {
   name: "device-list",
   components: {

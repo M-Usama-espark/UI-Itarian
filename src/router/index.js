@@ -15,7 +15,17 @@ const routes = [
     path: "/device-list",
     name: "Device List",
     component: () =>
-      import(/* webpackChunkName: "device-list" */ "../views/DeviceList.vue"),
+      import(
+        /* webpackChunkName: "device-list" */ "../views/Pages/DeviceList.vue"
+      ),
+  },
+  {
+    path: "/bulk-installation",
+    name: "Bulk Installation",
+    component: () =>
+      import(
+        /* webpackChunkName: "bulk-installation" */ "../views/Pages/BulkInstallation.vue"
+      ),
   },
   {
     path: "*",

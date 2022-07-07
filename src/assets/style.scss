@@ -1,4 +1,4 @@
-.side-search, .device-group{
+.block-content{
     height: 90vh;
 }
 
@@ -7,6 +7,29 @@
     padding: 0.5rem;
   }
 .btn-success{
+    font-size: 12px !important;
     background-color: #8bc34a !important;
     border-color: #8bc34a !important;
+}
+.btn-primary{
+    font-size: 12px !important;
+    background-color: #3b70ac !important;
+    border-color: #3b70ac !important;
+}
+.table>thead>tr {
+    text-transform: uppercase;
+    font-size: 12px;
+    height: 3rem;
+    vertical-align: middle;
+    background-color: #FCFCFC;
+}
+.table>tbody {
+    border-top: none  !important;
+}
+.full-w{
+    width: 100% !important;
+}
+.custom-select{
+    width: 100% !important;
+    height: 40px !important;
 }

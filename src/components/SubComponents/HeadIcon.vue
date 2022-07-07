@@ -10,7 +10,7 @@ export default {
 <template>
   <div class="headIcon">
     <div class="icon">
-      <b-icon :icon="icon" scale="2"></b-icon>
+      <b-icon :icon="icon" scale="1.5"></b-icon>
     </div>
     <div class="title">{{ title }}</div>
   </div>
@@ -18,8 +18,8 @@ export default {
 <style lang="scss" scoped>
 .headIcon {
   cursor: pointer;
-  border-right: 1px solid lightgray;
-  border-bottom: 1px solid lightgray;
+  border-right: 1px solid #e6e0e0;
+  border-bottom: 1px solid #fcfcfc;
   .icon {
     height: 30px;
     text-align: center;

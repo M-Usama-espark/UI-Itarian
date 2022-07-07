@@ -22,7 +22,7 @@ export default {
           icon: "laptop",
           child: [
             { name: "Device List", route: "device-list" },
-            { name: "Bulk Installation Package" },
+            { name: "Bulk Installation Package", route: "bulk-installation" },
           ],
         },
         {
@@ -169,14 +169,17 @@ export default {
   .logo {
     background: #356399;
     color: white;
+    height: 3.3rem;
     font-weight: 600;
-    padding: 1rem;
+    display: flex;
+    align-items: center;
+    padding-left: 1.5rem;
     border-right: 1px solid white;
   }
   .side-content {
     background: white;
     padding: 1rem;
-    width: 20rem;
+    width: 18rem;
     flex-direction: column;
     flex: 1;
     .side-child {

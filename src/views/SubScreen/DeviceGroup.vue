@@ -1,20 +1,11 @@
 <template>
-  <div class="device-group">
+  <div class="device-group block-content">
     <div class="toggleBtn" @click="isToggle">
-      <b-icon
-        v-if="toggle"
-        icon="arrow-bar-left"
-        scale="2"
-        variant="primary"
-      ></b-icon>
-      <b-icon
-        v-else
-        icon="arrow-bar-right"
-        scale="2"
-        variant="primary"
-      ></b-icon>
+      <b-icon v-if="toggle" icon="chevron-left" pack="fas" scale="1"></b-icon>
+      <b-icon v-else icon="chevron-right" scale="1"></b-icon>
+      <span class="fa fa-folder-tree text-primary"></span>
     </div>
-    <Tabs :tabs="['Group Management', 'Device Management']">
+    <Tabs :tabs="['Group Management', 'Device Management']" :tabLeft="3">
       <template v-slot:1>
         <div class="d-flex">
           <HeadIcon
@@ -30,6 +21,8 @@
             :striped="true"
             :items="items"
             :fields="fields"
+            table-class="customTable"
+            tbody-class="customBody"
           ></b-table>
         </div>
       </template>
@@ -103,7 +96,7 @@ export default {
       headIconList1: [
         {
           name: "Enroll Device",
-          icon: "arrow-down-right-square",
+          icon: "laptop",
         },
         {
           name: "Remote Control",
