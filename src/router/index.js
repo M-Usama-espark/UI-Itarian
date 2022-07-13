@@ -28,6 +28,14 @@ const routes = [
       ),
   },
   {
+    path: "/file-rating",
+    name: "File Rating",
+    component: () =>
+      import(
+        /* webpackChunkName: "device-list" */ "../views/Pages/FileRating.vue"
+      ),
+  },
+  {
     path: "*",
     // redirect: "/",
     name: "errorpage",

@@ -7,6 +7,9 @@ export default {
       tabValue: 1,
     };
   },
+  mounted() {
+    console.log("tttabs", this.tabs[this.tabValue - 1]);
+  },
 };
 </script>
 <template>

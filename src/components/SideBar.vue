@@ -1,5 +1,4 @@
 <script>
-// import logo from "../assets";
 export default {
   data() {
     return {
@@ -60,14 +59,14 @@ export default {
             { name: "Quarantined Threats" },
             { name: "Contained Threats" },
             { name: "Autorun Alerts" },
-            { name: "File Rating" },
+            { name: "File Rating", route: "file-rating" },
             { name: "File Verdicts" },
             { name: "Device Control" },
             { name: "Data Loss Prevention" },
           ],
         },
         {
-          id: 5,
+          id: 6,
           name: "Network Management",
           icon: "laptop",
           child: [
@@ -78,7 +77,7 @@ export default {
           ],
         },
         {
-          id: 6,
+          id: 7,
           name: "Application Store",
           icon: "basket3",
           child: [
@@ -88,7 +87,7 @@ export default {
           ],
         },
         {
-          id: 7,
+          id: 8,
           name: "Applications",
           icon: "hdd-stack",
           child: [
@@ -99,13 +98,13 @@ export default {
           ],
         },
         {
-          id: 7,
+          id: 9,
           name: "License Management",
           icon: "files",
           child: [{ name: "License Management" }],
         },
         {
-          id: 7,
+          id: 10,
           name: "Setting",
           icon: "gear",
           child: [
@@ -134,38 +133,65 @@ export default {
       class="side-content"
       :style="toggleMenu ? 'width:4rem' : 'width:18rem'"
     >
-      <div
-        v-for="(item, index) in menuList"
-        :key="index"
-        class="accordion"
-        role="tablist"
-      >
-        <div no-body class="mb-1 tab">
-          <div
-            block
-            href="#"
-            v-b-toggle="'accordion-' + index"
-            variant="info"
-            class="align-items-center"
-          >
-            <b-icon :icon="item.icon" scale="1.5" />
-            <span v-if="!toggleMenu" class="name">
-              {{ item.name }}
-            </span>
-          </div>
-          <b-collapse
-            :id="'accordion-' + index"
-            accordion="my-accordion"
-            role="tabpanel"
-          >
-            <div class="side-child">
-              <span v-for="(row, i) in item.child" :key="i">
-                <router-link :to="row.route ? `/${row.route}` : '/'">{{
-                  row.name
-                }}</router-link>
+      <div v-if="!toggleMenu">
+        <div
+          v-for="(item, index) in menuList"
+          :key="index"
+          class="accordion"
+          role="tablist"
+        >
+          <div no-body class="mb-1 tab">
+            <div
+              block
+              href="#"
+              v-b-toggle="'accordion-' + index"
+              variant="info"
+              class="align-items-center"
+            >
+              <b-icon :icon="item.icon" scale="1.5" />
+              <span v-if="!toggleMenu" class="name">
+                {{ item.name }}
               </span>
             </div>
-          </b-collapse>
+            <b-collapse
+              :id="'accordion-' + index"
+              accordion="my-accordion"
+              role="tabpanel"
+            >
+              <div class="side-child">
+                <span v-for="(row, i) in item.child" :key="i">
+                  <router-link :to="row.route ? `/${row.route}` : '/'">{{
+                    row.name
+                  }}</router-link>
+                </span>
+              </div>
+            </b-collapse>
+          </div>
+        </div>
+      </div>
+      <div v-else class="smallTabMenu">
+        <div v-for="(item, index) in menuList" :key="index" class="tabmenuIcon">
+          <b-icon
+            :id="'popover-target-' + item.id"
+            :icon="item.icon"
+            scale="1.5"
+          />
+          <b-popover
+            :target="'popover-target-' + item.id"
+            triggers="hover"
+            placement="right"
+            custom-class="hoverSubMenu"
+          >
+            <div class="m-0 p-0">
+              <div v-for="(row, i) in item.child" :key="i" class="mb-2">
+                <router-link
+                  :to="row.route ? `/${row.route}` : '/'"
+                  class="achor"
+                  >{{ row.name }}</router-link
+                >
+              </div>
+            </div>
+          </b-popover>
         </div>
       </div>
     </div>
@@ -232,6 +258,15 @@ export default {
         font-weight: 600;
         margin-left: 1rem;
         text-transform: uppercase;
+      }
+    }
+    .smallTabMenu {
+      .tabmenuIcon {
+        cursor: pointer;
+        margin-bottom: 1rem;
+        .hoverSubMenu {
+          // background: lime !important;
+        }
       }
     }
   }
