@@ -123,7 +123,10 @@ export default {
 </script>
 <template>
   <div class="content-logo">
-    <div class="logo">
+    <div
+      class="logo"
+      :style="toggleMenu ? 'justify-content: center;' : 'padding-left: 1.5rem;'"
+    >
       <img v-if="toggleMenu" src="../assets/EM_icon_64.png" alt="" />
       <h5 v-else>Endpoint Manger</h5>
     </div>
@@ -189,8 +192,8 @@ export default {
     height: 3.3rem;
     font-weight: 600;
     display: flex;
-    justify-content: center;
     align-items: center;
+    // justify-content: center;
     // padding-left: 1.5rem;
     border-right: 1px solid white;
     img {
