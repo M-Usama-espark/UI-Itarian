@@ -1,7 +1,9 @@
 <script>
+// import logo from "../assets";
 export default {
   data() {
     return {
+      toggleMenu: false,
       menuList: [
         {
           id: 1,
@@ -122,9 +124,13 @@ export default {
 <template>
   <div class="content-logo">
     <div class="logo">
-      <h5>Endpoint Manger</h5>
+      <img v-if="toggleMenu" src="../assets/EM_icon_64.png" alt="" />
+      <h5 v-else>Endpoint Manger</h5>
     </div>
-    <div class="side-content">
+    <div
+      class="side-content"
+      :style="toggleMenu ? 'width:4rem' : 'width:18rem'"
+    >
       <div
         v-for="(item, index) in menuList"
         :key="index"
@@ -140,7 +146,7 @@ export default {
             class="align-items-center"
           >
             <b-icon :icon="item.icon" scale="1.5" />
-            <span class="name">
+            <span v-if="!toggleMenu" class="name">
               {{ item.name }}
             </span>
           </div>
@@ -160,26 +166,41 @@ export default {
         </div>
       </div>
     </div>
+    <div class="togglebtn" @click="toggleMenu = !toggleMenu">
+      <b-icon
+        v-if="toggleMenu"
+        icon="chevron-double-right"
+        pack="fas"
+        scale="1"
+      ></b-icon>
+      <b-icon v-else icon="chevron-double-left" scale="1"></b-icon>
+    </div>
   </div>
 </template>
 <style lang="scss" scoped>
 .content-logo {
   display: flex;
   flex-direction: column;
+  position: relative;
+
   .logo {
     background: #356399;
     color: white;
     height: 3.3rem;
     font-weight: 600;
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding-left: 1.5rem;
+    // padding-left: 1.5rem;
     border-right: 1px solid white;
+    img {
+      width: 30px;
+    }
   }
   .side-content {
     background: white;
     padding: 1rem;
-    width: 18rem;
+    // width: 18rem;
     flex-direction: column;
     flex: 1;
     .side-child {
@@ -210,6 +231,18 @@ export default {
         text-transform: uppercase;
       }
     }
+  }
+  .togglebtn {
+    cursor: pointer;
+    position: absolute;
+    padding: 3px 10px;
+    bottom: 2rem;
+    right: 1rem;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  .togglebtn:hover {
+    background: lightgray;
   }
 }
 </style>
