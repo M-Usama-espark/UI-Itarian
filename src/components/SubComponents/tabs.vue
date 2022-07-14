@@ -8,7 +8,11 @@ export default {
     };
   },
   mounted() {
-    console.log("tttabs", this.tabs[this.tabValue - 1]);
+    this.$emit("input", this.tabs[this.tabValue - 1]);
+  },
+  updated() {
+    this.$emit("input", this.tabs[this.tabValue - 1]);
+    this.$emit("change", this.tabs[this.tabValue - 1]);
   },
 };
 </script>

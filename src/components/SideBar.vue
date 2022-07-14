@@ -9,7 +9,7 @@ export default {
           name: "Dashboard",
           icon: "grid",
           child: [
-            { name: "Audit" },
+            { name: "Audit", route: "audit" },
             { name: "Compliance" },
             { name: "Valkyrie" },
             { name: "Reports" },

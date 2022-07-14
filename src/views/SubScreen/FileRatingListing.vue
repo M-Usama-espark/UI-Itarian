@@ -1,13 +1,19 @@
 <template>
   <div class="block-content">
-    <div class="toggleBtn" @click="isToggle">
+    <div
+      v-if="tabsList.indexOf(tabValue) > 1"
+      class="toggleBtn"
+      @click="isToggle"
+    >
       <b-icon v-if="toggle" icon="chevron-left" pack="fas" scale="1"></b-icon>
       <b-icon v-else icon="chevron-right" scale="1"></b-icon>
       <span class="fa fa-folder-tree text-primary"></span>
     </div>
     <Tabs
-      :tabs="['File Rating', 'Detected Scripts', 'Obsolete Files']"
-      :tabLeft="3"
+      v-model="tabValue"
+      :tabs="tabsList"
+      :tabLeft="tabsList.indexOf(tabValue) > 1 ? 3 : 0"
+      @change="tabsChange"
     >
       <template v-slot:1>
         <div class="d-flex">
@@ -48,14 +54,6 @@
         </div>
       </template>
       <template v-slot:3>
-        <!-- <div class="d-flex">
-          <HeadIcon
-            v-for="(r, i) in headIconList1"
-            :key="i"
-            :icon="r.icon"
-            :title="r.name"
-          />
-        </div> -->
         <div class="search-input d-flex">
           <div class="mx-3 my-2">
             <span
@@ -88,6 +86,8 @@ export default {
   components: { Tabs, HeadIcon },
   data() {
     return {
+      tabsList: ["File Rating", "Detected Scripts", "Obsolete Files"],
+      tabValue: "",
       headIconList: [
         {
           name: "File Details",
@@ -153,6 +153,14 @@ export default {
   methods: {
     isToggle() {
       this.$emit("isToggle", !this.toggle);
+    },
+    tabsChange(v) {
+      let x = this.tabsList.indexOf(v) > 1;
+      if (x) {
+        this.$emit("isToggle", true);
+      } else {
+        this.$emit("isToggle", false);
+      }
     },
   },
 };

@@ -6,10 +6,16 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    redirect: "/device-list",
+    redirect: "/audit",
     name: "home",
     component: () =>
       import(/* webpackChunkName: "home" */ "../views/HomeView.vue"),
+  },
+  {
+    path: "/audit",
+    name: "Audit",
+    component: () =>
+      import(/* webpackChunkName: "audit" */ "../views/Pages/Audit.vue"),
   },
   {
     path: "/device-list",

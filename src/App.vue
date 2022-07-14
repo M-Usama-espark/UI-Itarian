@@ -32,6 +32,7 @@ export default {
   background: #d8e1e8;
   color: #2c3e50;
   font-size: 13px;
+  overflow-y: hidden;
   .main {
     width: 100%;
     height: 100vh;
@@ -42,13 +43,15 @@ export default {
     flex: 1;
     flex-direction: column;
   }
-  // .body-content {
-  //   flex: 1;
-  //   .wrapper {
-  //     display: block;
-  //     width: 100%;
-  //     background: white;
-  //   }
-  // }
+  .body-content {
+    overflow: scroll;
+    height: 100vh;
+    //   flex: 1;
+    //   .wrapper {
+    //     display: block;
+    //     width: 100%;
+    //     background: white;
+    //   }
+  }
 }
 </style>
