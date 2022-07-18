@@ -1,16 +1,27 @@
 <template>
   <div class="row">
-    <div v-for="(r, i) in data" :key="i" :class="'col-md-6 mb-4'">
-      <ChartView :data="r" />
-    </div>
+    <draggable
+      class="row"
+      v-model="data"
+      group="people"
+      @start="drag = true"
+      @end="drag = false"
+    >
+      <!-- <div v-for="(element, i) in data" :key="i">{{ element }}</div> -->
+      <div v-for="(r, i) in data" :key="i" :class="'col-md-6 mb-4'">
+        <ChartView :data="r" :key="r.title" />
+      </div>
+    </draggable>
   </div>
 </template>
 <script>
-import ChartView from "../../components/SubComponents/ChartView.vue";
+import ChartView from "../../components/SubComponents/ChartView1.vue";
+import draggable from "vuedraggable";
 export default {
   name: "audit-screen",
   components: {
     ChartView,
+    draggable,
   },
   data() {
     return {
@@ -18,9 +29,9 @@ export default {
         {
           title: "Ownership types",
           items: [
-            { name: "Corporate", value: 0 },
-            { name: "personal", value: 0 },
-            { name: "not specified", value: 0 },
+            { name: "Corporate", value: 2 },
+            { name: "personal", value: 3 },
+            { name: "not specified", value: 6 },
           ],
         },
         {
